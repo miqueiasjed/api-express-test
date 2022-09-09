@@ -3,6 +3,8 @@ import {v4 as uuid} from 'uuid'
 
 const app = express()
 
+app.use(express.json())
+
 interface User {
   id: string
   name: string
@@ -16,7 +18,7 @@ app.get('/users', (request, response) => {
 })
 
 app.post('/users', (request, response) => {
-  const {name, email} = request.body
+  const { name, email } = request.body
 
   const user = { id: uuid(), name, email }
 
